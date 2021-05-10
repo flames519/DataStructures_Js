@@ -58,15 +58,13 @@ export class Heap {
   }
 
   remove() {
-    if(this.count() <= 1) {
-      this.__head = 0
-      this.__last = 0;
-      return;
-    }
+    const len = this.count();
+    if(len === 0) throw new Error("堆为空");
 
     [this.__heap[this.__head], this.__heap[this.__last]] = [this.__heap[--this.__last], this.__heap[this.__head]];
     
     this.__isMax ? this.heapify() : this.heapify_min();
+    return this.__heap[this.__last];
   }
 
   count() {
@@ -74,42 +72,43 @@ export class Heap {
   }
 
   output(n?: number) {
-    console.log(this.__heap.filter(i => i).join(" -> "), n);
+    // console.log(this.__heap.filter(i => i).join(" -> "), n);
     
     return this.__heap.join(" -> "); 
   }
   
 }
 
-const heap = new Heap(10,false);
+// const arr = [9,8,3,5,6,7]
+// const heap = new Heap(arr.length)
+// for (const i of arr) {
+//   heap.add(i)
+// }
+// console.log(heap.output())
+// console.log(heap.remove());
+// console.log(heap.remove());
+// console.log(heap.remove());
 
-heap.add(8)
-heap.add(2)
-heap.add(3)
-heap.add(5)
-heap.add(4)
-heap.add(6)
-heap.add(9)
-heap.add(7)
-heap.add(1)
-heap.output()
-heap.remove()
-heap.output(1)
-heap.remove()
-heap.output(2)
-heap.remove()
-heap.output(3)
-heap.remove()
-heap.output(4)
-heap.remove()
-heap.output(5)
-heap.remove()
-heap.output(6)
-heap.remove()
-heap.output(7)
-heap.remove()
-heap.output(8)
-heap.remove()
-heap.output(9)
 
+// const heap = new Heap(10,false);
+//
+// heap.add(9)
+// heap.add(8)
+// heap.add(3)
+// heap.add(5)
+// heap.add(6)
+// heap.add(7)
+// console.log(heap.output())
+// heap.remove()
+// heap.output(1)
+// heap.remove()
+// heap.output(2)
+// heap.remove()
+// heap.output(3)
+// heap.remove()
+// heap.output(4)
+// heap.remove()
+// heap.output(5)
+// heap.remove()
+// heap.output(6)
 

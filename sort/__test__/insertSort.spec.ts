@@ -1,4 +1,4 @@
-import {insert_sort, insert_sort_test} from "../InsertSort"
+import {insert_sort, insert_sort_v2, insert_sort_test} from "../InsertSort"
 import {createTestArray as creatArr, createSortTestArray} from "../utils"
 
 
@@ -23,6 +23,14 @@ test('insert_sort: 5000', () => {
 test('insert_sort: 10000', () => {
   const testArr = creatArr(10000);
   expect(insert_sort_test(Array.from(testArr), insert_sort))
+    .toEqual(Array.from(testArr).sort());
+  expect(insert_sort_test(Array.from(testArr), insert_sort_v2))
+    .toEqual(Array.from(testArr).sort());
+});
+
+test('insert_sort_v2: 10000', () => {
+  const testArr = creatArr(10000);
+  expect(insert_sort_test(Array.from(testArr), insert_sort_v2))
     .toEqual(Array.from(testArr).sort());
 });
 

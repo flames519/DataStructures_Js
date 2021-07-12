@@ -11,6 +11,16 @@ module.exports = class Queue {
     return this._queue.shift()
   }
 
+  push_front(element) {
+    this._queue.unshift(element)
+    return true
+  }
+
+  pop_back() {
+    if (this.isEmpty()) return new Error("该队列为空")
+    return this._queue.pop()
+  }
+
   head() {
     if (this.isEmpty()) return new Error("该队列为空")
     return this._queue[0]

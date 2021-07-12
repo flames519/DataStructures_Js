@@ -1,3 +1,5 @@
+import { swap } from "./utils";
+
 export const selection_sort = (arr: number[]): void => {
   const n = arr.length;
   let minPos = 0, i = -1;
@@ -7,7 +9,8 @@ export const selection_sort = (arr: number[]): void => {
     while(++j < n) {
       if(arr[j] < arr[minPos]) minPos = j;
     } 
-    [arr[i], arr[minPos]] = [arr[minPos], arr[i]];
+    // [arr[i], arr[minPos]] = [arr[minPos], arr[i]];
+    swap(arr, i, minPos);
   }
 }
 
